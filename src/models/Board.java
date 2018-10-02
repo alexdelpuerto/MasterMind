@@ -24,7 +24,6 @@ public class Board {
         int deadCounter = 0;
         for (int i = 0; i < SecretKey.NUM_TOKENS; i++) {
 
-            //if (this.secretKey.split()[i].equals(this.userCodes.get(this.userCodes.size() - 1).split()[i])) {
             if (this.secretKey.getSecretKey()[i] == this.userCodes.get(this.userCodes.size() - 1).getSecretKey()[i]) {
                 deadCounter++;
             }
@@ -39,7 +38,6 @@ public class Board {
         for (int i = 0; i < SecretKey.NUM_TOKENS; i++) {
             for (int j = 0; j < SecretKey.NUM_TOKENS; j++) {
                 if (this.secretKey.getSecretKey()[i] == this.userCodes.get(this.userCodes.size() - 1).getSecretKey()[j] && !checkedSecretKeyNodes[i] && !checkedUserCodeNodes[j]) {
-                    //if (this.secretKey.split()[i].equals(this.userCodes.get(this.userCodes.size() - 1).split()[j]) && !checkedSecretKeyNodes[i] && !checkedUserCodeNodes[j]) {
                     injuredCounter++;
                     checkedSecretKeyNodes[i] = true;
                     checkedUserCodeNodes[j] = true;

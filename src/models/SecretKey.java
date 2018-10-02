@@ -14,7 +14,6 @@ public class SecretKey {
     public void read(String title) {
         assert title != null;
         this.secret = new LimitedStringDialog(title, SecretKey.NUM_TOKENS).read().toUpperCase().toCharArray();
-        //this.value = new LimitedStringDialog(title, SecretKey.NUM_TOKENS).read().toUpperCase();
     }
 
     public void generateRandomKey() {
@@ -29,19 +28,7 @@ public class SecretKey {
         this.value = aux;
     }
 
-
     public char[] getSecretKey() {
         return this.secret;
     }
-
-    /*
-        public String getValue() {
-            return this.value;
-        }
-
-    public String[] split() {
-        String[] items = this.value.split("");
-        return items;
-    }
-    */
 }

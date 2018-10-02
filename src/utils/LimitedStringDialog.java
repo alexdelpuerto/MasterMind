@@ -16,21 +16,6 @@ public class LimitedStringDialog {
         this.size = size;
     }
 
-/*
-    public String read() {
-        IO io = new IO();
-        String attemp;
-        do {
-            attemp = io.readString(title);
-
-            if (!((int) attemp.length() == this.size)) {
-                io.writeln("La cadena debe tener  " + this.size + " caracteres");
-            }
-        } while (!((int) attemp.length() == this.size));
-        return attemp;
-    }
-*/
-
     public String read() {
         IO io = new IO();
         //Exp. regular que comprueba si el código lo forman 4 letras de los colores

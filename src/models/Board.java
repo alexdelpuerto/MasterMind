@@ -1,7 +1,5 @@
 package models;
 
-import utils.IO;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,6 @@ public class Board {
     public void generateSecret() {
         this.secretKey = new SecretKey();
         this.secretKey.generateRandomKey();
-        this.writeSecret();
     }
 
     public int deadNumber() {
@@ -53,20 +50,6 @@ public class Board {
         } else {
             return false;
         }
-    }
-
-    public void writeInjuredAndDead() {
-        IO io = new IO();
-        io.writeln(deadNumber() + " muertos y " + (injuredNumber() - deadNumber()) + " heridos ");
-    }
-
-    public void writeSecret() {
-        IO io = new IO();
-        io.write("Secreto: ");
-        for (int i = 0; i < SecretKey.NUM_TOKENS; i++) {
-            io.write("*");
-        }
-        io.writeln();
     }
 
     public int countAttemps() {

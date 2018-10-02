@@ -2,7 +2,6 @@ package controllers;
 
 import models.Game;
 import models.SecretKey;
-import utils.IO;
 
 public class ManualGuessController extends GuessController {
 
@@ -10,10 +9,13 @@ public class ManualGuessController extends GuessController {
         super(game);
     }
 
-    protected SecretKey readUserCode(String title) {
+    @Override
+    public SecretKey readUserCode(String title) {
         SecretKey userCode = new SecretKey();
-        new IO().write("Nº" + (this.countAttemps() + 1) + "-");
-        userCode.read(title);
         return userCode;
+    }
+
+    public void accept(OperationControllerVisitor operationControllerVisitor) {
+        operationControllerVisitor.visit(this);
     }
 }

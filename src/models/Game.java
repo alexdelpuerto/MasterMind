@@ -26,10 +26,6 @@ public class Game {
         board.guess(secretKey);
     }
 
-    public void writeInjuredAndDead() {
-        board.writeInjuredAndDead();
-    }
-
     public int countAttemps() {
         return board.countAttemps();
     }
@@ -40,5 +36,13 @@ public class Game {
 
     public void clear() {
         board.clear();
+    }
+
+    public int deadNumber() {
+        return board.deadNumber();
+    }
+
+    public int injuredNumber() {
+        return board.injuredNumber();
     }
 }

@@ -13,13 +13,11 @@ public abstract class Controller {
         this.game = game;
     }
 
-    public abstract void control();
-
-    protected State getState() {
+    public State getState() {
         return game.getState();
     }
 
-    protected void setState(State state) {
+    public void setState(State state) {
         assert state != null;
         game.setState(state);
     }
@@ -28,7 +26,7 @@ public abstract class Controller {
         return this.game;
     }
 
-    protected boolean existVictory() {
+    public boolean existVictory() {
         return game.existVictory();
     }
 
@@ -36,11 +34,7 @@ public abstract class Controller {
         game.guess(secretKey);
     }
 
-    protected void writeInjuredAndDead() {
-        game.writeInjuredAndDead();
-    }
-
-    protected int countAttemps() {
+    public int countAttemps() {
         return game.countAttemps();
     }
 
@@ -50,5 +44,13 @@ public abstract class Controller {
 
     protected void clear() {
         game.clear();
+    }
+
+    public int deadNumber() {
+        return game.deadNumber();
+    }
+
+    public int injuredNumber() {
+        return game.injuredNumber();
     }
 }

@@ -8,6 +8,5 @@ public abstract class OperationController extends Controller {
         super(game);
     }
 
-    @Override
-    public abstract void control();
+    public abstract void accept(OperationControllerVisitor operationControllerVisitor);
 }

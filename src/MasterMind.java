@@ -1,22 +1,24 @@
 import controllers.Controller;
 import controllers.Logic;
-
-import java.io.IOException;
+import controllers.OperationController;
+import views.MasterMindView;
 
 public class MasterMind {
 
     private Logic logic;
+    private MasterMindView view;
 
     public MasterMind() {
         logic = new Logic();
+        view = new MasterMindView();
     }
 
     public void play() {
-        Controller controller;
+        OperationController controller;
         do {
             controller = logic.getController();
             if (controller != null) {
-                controller.control();
+                view.interact(controller);
             }
         } while (controller != null);
     }

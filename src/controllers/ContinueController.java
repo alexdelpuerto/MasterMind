@@ -2,7 +2,6 @@ package controllers;
 
 import models.Game;
 import models.State;
-import utils.IO;
 
 public class ContinueController extends OperationController {
 
@@ -10,21 +9,18 @@ public class ContinueController extends OperationController {
         super(game);
     }
 
-    @Override
-    public void control() {
+    public void resume(boolean again) {
         assert this.getState() == State.FINAL;
-        char again;
 
-        do {
-            again = new IO().readChar("Volver a jugar? (s/n): ");
-            again = Character.toUpperCase(again);
-        } while (again != 'S' && again != 'N');
-
-        if (again == 'S') {
+        if (again) {
             this.clear();
             this.setState(State.INITIAL);
         } else {
             this.setState(State.EXIT);
         }
+    }
+
+    public void accept(OperationControllerVisitor operationControllerVisitor) {
+        operationControllerVisitor.visit(this);
     }
 }

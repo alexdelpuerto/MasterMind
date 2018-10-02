@@ -2,7 +2,6 @@ package controllers;
 
 import models.Game;
 import models.State;
-import utils.LimitedIntDialog;
 
 public class StartController extends OperationController {
 
@@ -12,10 +11,8 @@ public class StartController extends OperationController {
         super(game);
     }
 
-    public void control() {
+    public void start(int selection) {
         assert this.getState() == State.INITIAL;
-
-        int selection = new LimitedIntDialog("1.Partida\n2.Demo\nOpción?:", 1, 2).read();
 
         if (selection == 1) {
             guessController = new ManualGuessController(this.getGame());
@@ -28,6 +25,10 @@ public class StartController extends OperationController {
 
     public GuessController getGuessController() {
         return guessController;
+    }
+
+    public void accept(OperationControllerVisitor operationControllerVisitor) {
+        operationControllerVisitor.visit(this);
     }
 }
 
